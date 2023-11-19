@@ -6,7 +6,11 @@ import { ItemsComponent } from './item/items.component'
 import { ItemDetailComponent } from './item/item-detail.component'
 
 const routes: Routes = [
-  { path: '', redirectTo: '/items', pathMatch: 'full' },
+  { path: '', redirectTo: '/login', pathMatch: 'full' },
+  {
+    path: 'login',
+    loadChildren: () => import('./login/login.module').then(m => m.LoginModule)
+  },
   { path: 'items', component: ItemsComponent },
   { path: 'item/:id', component: ItemDetailComponent },
 ]

@@ -1,3 +1,4 @@
-**/node_modules
-**/package-lock.json
-**/platforms
+node_modules/
+platforms/
+package-lock.json
+.DS_Store

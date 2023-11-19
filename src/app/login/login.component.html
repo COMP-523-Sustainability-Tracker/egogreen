@@ -1,0 +1,30 @@
+<ActionBar title="EgoGreen"></ActionBar>
+
+<FlexboxLayout class = "page"> 
+    <StackLayout class="form">
+
+        <Label class = "header" text = "Login" > </Label> 
+
+        <StackLayout class = "input-field"> 
+            <Label class = "input" text = "Username"> </Label> 
+            <TextField class="input-rounded"  text = "" keyboardType="email" returnKeyType="next" autocorrect="false" autocapitalizationType="none" ></TextField>
+            <StackLayout class = "hr-light"> </StackLayout>
+        </StackLayout>
+
+         <StackLayout class = "input-field"> 
+            <Label class = "input" text = "Password"> </Label> 
+            <TextField class="input-rounded" text = "" secure = "true" returnKeyType="next" autocorrect="false" autocapitalizationType="none"></TextField>
+            <StackLayout class = "hr-light"> </StackLayout>
+        </StackLayout>
+
+        <FlexboxLayout flexDirection ="row"> 
+            <Button text = "Forgot Password?" tap = "register"> </Button>
+
+            <Button text = "Register" tap = "register"> </Button>
+
+        </FlexboxLayout> 
+
+
+        <Button text = "Login" class = "btn btn-primary"> </Button>
+    </StackLayout>
+</FlexboxLayout>
