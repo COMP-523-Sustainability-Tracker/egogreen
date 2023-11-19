@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core'
 
 import { firebase } from '@nativescript/firebase-core'
 import '@nativescript/firebase-auth'; 
-import '@nativescript/firebase-firestore';
-import '@nativescript/firebase-storage'; 
+//import '@nativescript/firebase-firestore';
+//import '@nativescript/firebase-storage'; 
 
 @Component({
   selector: 'ns-app',
@@ -40,5 +40,6 @@ export class AppComponent implements OnInit {
         )})
       }
    
-    )}
-}
+    ) 
+   }
+  }
