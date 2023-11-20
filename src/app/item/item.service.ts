@@ -1,19 +1,45 @@
 import { Injectable } from '@angular/core'
+import { firebase } from '@nativescript/firebase-core'
+import '@nativescript/firebase-firestore';
 
 import { Item } from './item'
+import { QuerySnapshot } from '@nativescript/firebase-firestore';
 
 @Injectable({
   providedIn: 'root',
 })
-export class ItemService {
-  private items = new Array<Item>(
-    { id: 1, name: 'Steve Stegen', role: 'Goalkeeper' },
-    { id: 3, name: 'Piqué', role: 'Defender' },
-    { id: 4, name: 'I. Rakitic', role: 'Midfielder' },
-    { id: 25, name: 'Masip', role: 'Goalkeeper' }
-  )
 
-  getItems(): Array<Item> {
+export class ItemService {
+  private itemCollection;
+  private items = new Array<Item>
+
+  constructor () {
+    this.itemCollection = firebase().firestore().collection("testdata");
+    this.loadItems();
+  }
+
+  loadItems (){
+    new Promise((resolve, reject) => {
+    this.itemCollection.get()
+      .then(querySnapshot => {
+        const items = []
+        querySnapshot.forEach(document => {
+          this.items.push({
+            "id": parseInt(document.id),
+            "name": document.data().name,
+            "role": document.data().role,
+        })
+        });
+        resolve(true)
+      })
+      .catch(err => {
+        console.log(err)
+        reject(err)
+      })
+    })
+  }
+
+  getItems() {
     return this.items
   }
 
