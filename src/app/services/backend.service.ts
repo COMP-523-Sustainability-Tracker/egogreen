@@ -1,5 +1,6 @@
 import { Injectable } from "@angular/core";
 import { getString, setString } from '@nativescript/core/application-settings'
+import {User} from '../models/user.model'
 
 const tokenKey = "token";
 

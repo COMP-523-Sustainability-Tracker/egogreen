@@ -20,7 +20,6 @@ firebase().auth()
       BackendService.token = "";
       console.log('User is currently signed out!');
     } else {
-      console.log(JSON.stringify(data))
       BackendService.token = data.uid;
       console.log('User is signed in! ' + BackendService.token);
     }
