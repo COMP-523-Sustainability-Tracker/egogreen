@@ -45,6 +45,7 @@ Button.-primary {
   background-color: rgb(217,217,217);
   margin-bottom: 20px;
   border-radius:10;
+  padding-left: 1;
 }
 
 .register {
@@ -66,4 +67,11 @@ Button.-primary {
   margin-bottom: 20px;
   border-radius:10;
   color: rgb(255, 255, 255);
+}
+
+.gold {
+  background-color: #FACC45;
+  border-width: 1;
+  border-radius: 5;
+  border-color: #FACC45;
 }

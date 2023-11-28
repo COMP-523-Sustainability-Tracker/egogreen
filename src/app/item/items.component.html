@@ -1,4 +1,8 @@
-<ActionBar title="EgoGreen"> </ActionBar>
+<ActionBar title="EgoGreen"> 
+  <ActionItem (tap)="logout()">
+    <Button text="Logout" class="action-item"></Button>
+  </ActionItem>  
+</ActionBar>
 
 <GridLayout>
   <ListView [items]="items">

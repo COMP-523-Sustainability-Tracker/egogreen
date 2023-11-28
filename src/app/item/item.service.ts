@@ -1,9 +1,7 @@
 import { Injectable } from '@angular/core'
 import { firebase } from '@nativescript/firebase-core'
-import '@nativescript/firebase-firestore';
-
+import '@nativescript/firebase-firestore'
 import { Item } from './item'
-import { QuerySnapshot } from '@nativescript/firebase-firestore';
 
 @Injectable({
   providedIn: 'root',

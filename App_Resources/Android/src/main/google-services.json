@@ -1,0 +1,82 @@
+{
+  "project_info": {
+    "project_number": "951489554953",
+    "project_id": "egogreen-e5ca9",
+    "storage_bucket": "egogreen-e5ca9.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:951489554953:android:99ac44984b9f5f555c66d8",
+        "android_client_info": {
+          "package_name": "org.nativescript.egogreen"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "951489554953-80fmldhn5d0m10e5nujasvjvn772b21d.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBBoJBd9EQRYJpiXdWfUhmTpaSA3o9fAsM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "951489554953-80fmldhn5d0m10e5nujasvjvn772b21d.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "951489554953-299u8qn30pq4qenfdrtbqvq9i4c8c1dm.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "org.nativescript.egogreenDeb"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:951489554953:android:31a372cd740d24945c66d8",
+        "android_client_info": {
+          "package_name": "org.nativescript.egogreenDev"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "951489554953-80fmldhn5d0m10e5nujasvjvn772b21d.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBBoJBd9EQRYJpiXdWfUhmTpaSA3o9fAsM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "951489554953-80fmldhn5d0m10e5nujasvjvn772b21d.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "951489554953-299u8qn30pq4qenfdrtbqvq9i4c8c1dm.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "org.nativescript.egogreenDeb"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
