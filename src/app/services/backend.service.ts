@@ -3,6 +3,7 @@ import { getString, setString } from '@nativescript/core/application-settings'
 
 const tokenKey = "token";
 
+@Injectable()
 export class BackendService {
   
   static isLoggedIn(): boolean {

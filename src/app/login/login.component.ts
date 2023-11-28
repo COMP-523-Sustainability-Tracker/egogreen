@@ -1,10 +1,9 @@
 import { Component } from '@angular/core'
-import { Dialogs, prompt } from '@nativescript/core'
+import { prompt } from '@nativescript/core'
 import {User} from '../models/user.model'
-import {FirebaseService} from '../services'
+import {FirebaseService, BackendService} from '../services'
 import { RouterExtensions } from '@nativescript/angular';
-import { fromEvent, Observable } from 'rxjs'
-import { map, tap } from "rxjs/operators";
+import { NativeScriptFormsModule } from '@nativescript/angular'
 
 
 @Component({
@@ -25,8 +24,8 @@ export class LoginComponent {
             ) 
   {
     this.user = new User();
-    this.user.email = "";
-    this.user.password = "";
+    this.user.email = "dude@aol.com";
+    this.user.password = "testing";
 
 
   }
@@ -34,7 +33,12 @@ export class LoginComponent {
  async submit() {
     this.isAuthenticating = true;
     if (this.isLoggingIn) {
+      //console.log("logging in: " + this.user.email + " " + this.user.password)
       await this.login();
+      //console.log("Submit After login: " + BackendService.token + this.isAuthenticating)
+      if(BackendService.isLoggedIn()) {
+        this.routerExtensions.navigate(["/"], { clearHistory: true } )
+      } 
     } else {
       await this.signUp();
     }
@@ -42,10 +46,8 @@ export class LoginComponent {
 
   async login() {
     try {
-      await this.firebaseService.login(this.user)
       this.isAuthenticating = false;
-      console.log("here")
-      this.routerExtensions.navigate(["/"], { clearHistory: true } )
+      await this.firebaseService.login(this.user)
     } catch (error){
       this.isAuthenticating = false;
     }

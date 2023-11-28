@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core";
-//import { NgModule } from '@angular/core'
+import { NgModule } from '@angular/core'
 import { CanActivate, Router } from "@angular/router";
 
 import { BackendService } from "./services/backend.service";

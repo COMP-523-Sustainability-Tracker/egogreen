@@ -8,4 +8,4 @@ import { AuthGuard } from "../auth-guard.service";
 const listRoutes: Routes = [
   { path: "", component: ItemsComponent, canActivate: [AuthGuard] },
 ];
-export const listRouting: ModuleWithProviders = RouterModule.forChild(listRoutes);
+//export const listRouting: ModuleWithProviders = RouterModule.forChild(listRoutes);
