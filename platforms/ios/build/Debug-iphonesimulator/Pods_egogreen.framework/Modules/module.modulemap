@@ -1,0 +1,6 @@
+framework module Pods_egogreen {
+  umbrella header "Pods-egogreen-umbrella.h"
+
+  export *
+  module * { export * }
+}

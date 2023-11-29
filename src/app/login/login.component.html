@@ -1,0 +1,18 @@
+<ActionBar title="Login" class="action-bar"></ActionBar>
+
+<FlexboxLayout class ="page"> 
+    <StackLayout class="form" id="form">
+        <Label class="header" text="Login"> </Label> 
+        <StackLayout> 
+            <Label class = "input" text = "Username"> </Label> 
+            <TextField class="input-rounded" keyboardType="email" returnKeyType="next" autocorrect="false" autocapitalizationType="none"></TextField>
+            <StackLayout class = "hr-light"> </StackLayout>
+            <Label class = "input" text = "Password"> </Label> 
+            <TextField class="input-rounded" secure = "true" returnKeyType="next" autocorrect="false" autocapitalizationType="none"></TextField>
+            <StackLayout class = "hr-light"> </StackLayout>
+        </StackLayout>
+        <Button text="Register" class="btn"></Button>
+        <Button text="Forgot Password"></Button>
+        <Button text="Login" class = "btn btn-primary"> </Button>
+    </StackLayout>
+</FlexboxLayout>

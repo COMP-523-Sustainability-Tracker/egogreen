@@ -15,12 +15,14 @@
     "@nativescript/angular": "^16.0.0",
     "@nativescript/core": "~8.6.0",
     "@nativescript/theme": "~3.0.2",
+    "nativescript-image": "^3.0.12",
     "rxjs": "~7.8.0",
     "zone.js": "~0.13.0"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~16.2.0",
     "@angular/compiler-cli": "~16.2.0",
+    "@nativescript/ios": "8.6.3",
     "@nativescript/types": "~8.6.0",
     "@nativescript/webpack": "~5.0.18",
     "@ngtools/webpack": "~16.2.0",
