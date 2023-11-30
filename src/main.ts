@@ -1,5 +1,5 @@
 import { platformNativeScript, runNativeScriptAngularApp } from '@nativescript/angular';
-import { BackendService } from "./app/services/backend.service";
+import { BackendService } from "./app/services/backend.service"
 import { AppModule } from './app/app.module';
 
 import { firebase } from '@nativescript/firebase-core'

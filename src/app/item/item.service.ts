@@ -1,31 +1,40 @@
 import { Injectable } from '@angular/core'
 import { firebase } from '@nativescript/firebase-core'
 import '@nativescript/firebase-firestore'
-import { Item } from './item'
+import { Receipt } from './receipt'
+import { BackendService } from "~/app/services/backend.service"
 
 @Injectable({
   providedIn: 'root',
 })
 
-export class ItemService {
-  private itemCollection;
-  private items = new Array<Item>
+export class ReceiptService {
+  private receiptCollection;
+  private receipts = new Array<Receipt>
 
   constructor () {
-    this.itemCollection = firebase().firestore().collection("testdata");
+    this.receiptCollection = firebase().firestore().collection("userData/" + BackendService.token + "/receipts");
     this.loadItems();
   }
 
   loadItems (){
     new Promise((resolve, reject) => {
-    this.itemCollection.get()
+    this.receiptCollection.get()
       .then(querySnapshot => {
-        const items = []
+        this.receipts = []
         querySnapshot.forEach(document => {
-          this.items.push({
-            "id": parseInt(document.id),
-            "name": document.data().name,
-            "role": document.data().role,
+          this.receipts.push({
+            "id": document.id,
+            "merchantName": document.data().merchantName,
+            "merchantAddress": document.data().merchantAddress,
+            "merchantCity": document.data().merchantCity,
+            "merchantState": document.data().merchantState,
+            "date": document.data().date,
+            "paymentType": document.data().paymentType,
+            "taxAmount": document.data().taxAmount,            
+            "receiptTotal": document.data().receiptTotal,
+            "calculatedSubTotal": document.data().calculatedSubTotal,
+            "totalGCO2e": document.data().totalGCO2e,
         })
         });
         resolve(true)
@@ -38,10 +47,10 @@ export class ItemService {
   }
 
   getItems() {
-    return this.items
+    return this.receipts
   }
 
-  getItem(id: number): Item {
-    return this.items.filter((item) => item.id === id)[0]
+  getItem(id: string): Receipt {
+    return this.receipts.filter((receipt) => receipt.id === id)[0]
   }
 }

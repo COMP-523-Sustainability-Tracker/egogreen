@@ -8,7 +8,9 @@
   <ListView [items]="items">
     <ng-template let-item="item">
       <StackLayout [nsRouterLink]="['/item', item.id]">
-        <Label [text]="item.name"></Label>
+        <Label [text]="item.merchantName + ' on ' + item.date.substring(0,10)"></Label>
+        <Label [text]="'$'+item.receiptTotal"></Label>
+        <Label [text]="'Grams of Co2 ' + item.totalGCO2e"></Label>
       </StackLayout>
     </ng-template>
   </ListView>

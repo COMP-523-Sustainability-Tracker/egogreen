@@ -4,6 +4,8 @@ import { BackendService } from "./backend.service"
 import {UtilsService} from './utils.service'
 import { firebase } from '@nativescript/firebase-core'
 import { Dialogs } from '@nativescript/core'
+import {Observable, BehaviorSubject} from 'rxjs'
+import { share } from 'rxjs/operators'
 
 @Injectable()
 export class FirebaseService {
@@ -11,6 +13,9 @@ export class FirebaseService {
     private ngZone: NgZone,
     private utils: UtilsService
   ){} 
+
+  private _allItems: Array<Receipt> = [];
+  items: BehaviorSubject<Array<Receipt>> = new BehaviorSubject([]);
  
   register(user: User) {
     return firebase().auth().createUserWithEmailAndPassword(user.email, user.password)
@@ -56,7 +61,7 @@ export class FirebaseService {
   }
   
 /*
-  getMyWishList(): Observable<any> {
+  getMyReceipts(): Observable<any> {
     return new Observable((observer: any) => {
       let path = 'Gifts';
       
@@ -67,10 +72,37 @@ export class FirebaseService {
              observer.next(results);
           });
         };
-        firebase.addValueEventListener(onValueEvent, `/${path}`);
+        firebase().addValueEventListener(onValueEvent, `/${path}`);
     }).pipe(share());              
   }
 
+
+  handleSnapshot(data: any) {
+    //empty array, then refill and filter
+    this._allItems = [];
+    if (data) {
+      for (let id in data) {        
+        let result = (<any>Object).assign({id: id}, data[id]);
+        if(BackendService.token === result.UID){
+          this._allItems.push(result);
+        }        
+      }
+      this.publishUpdates();
+    }
+    return this._allItems;
+  }
+
+  publishUpdates() {
+    // here, we sort must emit a *new* value (immutability!)
+    this._allItems.sort(function(a, b){
+        if(a.date < b.date) return -1;
+        if(a.date > b.date) return 1;
+      return 0;
+    })
+    this.items.next([...this._allItems]);
+  }
+*/
+/*
   getMyGift(id: string): Observable<any> {
     return new Observable((observer: any) => {
       observer.next(this._allItems.filter(s => s.id === id)[0]);

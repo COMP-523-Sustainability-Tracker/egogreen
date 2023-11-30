@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core'
-
-import {BackendService, FirebaseService} from "../services";
+import {Observable} from 'rxjs'
+import {FirebaseService} from "../services"
 import { Item } from './item'
-import { ItemService } from './item.service'
+import { ReceiptService } from './item.service'
 import {RouterExtensions} from '@nativescript/angular';
+import { Receipt } from '../models'
 
 @Component({
   selector: 'ns-items',
@@ -11,15 +12,16 @@ import {RouterExtensions} from '@nativescript/angular';
 })
 
 export class ItemsComponent implements OnInit {
-  items: Array<Item>
+  items: Array<Receipt>
 
-  constructor(private itemService: ItemService, 
+  constructor(private receiptService: ReceiptService, 
               private routerExtensions: RouterExtensions, 
               private firebaseService: FirebaseService
               ) {}
 
   ngOnInit(): void {
-    this.items = this.itemService.getItems()
+    this.items = this.receiptService.getItems()
+    //this.receipts$ = this.firebaseService.getMyReceipts();
   }
 
   logout() {

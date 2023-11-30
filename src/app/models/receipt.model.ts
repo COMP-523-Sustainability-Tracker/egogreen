@@ -2,11 +2,15 @@ export class Receipt {
     constructor
       (
         public id: string,
-        public name: string,
+        public merchantName: string,
+        public merchantAddress: string,
+        public merchantCity: string,
+        public merchantState: string,
         public date: string,
-        public description: string,
-        public imagepath: string,
-        public UID: string 
+        public paymentType: string,
+        public receiptTotal: number,
+        public calculatedSubTotal: number,
+        public totalGCO2e: number
       )
     {}   
 }
