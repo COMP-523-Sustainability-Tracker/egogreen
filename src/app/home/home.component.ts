@@ -22,7 +22,10 @@ export class HomeComponent implements OnInit {
 		console.log("here")
 	}
 
-
+	loadRegister(){
+		this.routerExtensions.navigate(["/register"], {clearHistory: false})
+		console.log("here")
+	}
 
 	
 }

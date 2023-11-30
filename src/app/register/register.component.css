@@ -1,0 +1,76 @@
+@import '@nativescript/theme/css/core.css';
+@import '@nativescript/theme/css/default.css';
+
+.page{
+  display: flex;
+  flex-direction: column;
+  
+}
+
+.form {
+  width: 100%;
+  margin-left: 50;
+  margin-right: 50;
+}
+
+.image-container {
+    background-color: #063F06;
+}
+.image {
+    background-color: #063F06;
+    width: 50%;
+}
+
+.header {
+  font-size: 48;
+  text-align: left;
+  color: black;
+  font-weight: 700;
+  margin-top: 50;
+  margin-bottom: 20;
+  margin-left: 15;
+}
+
+.input{
+  font-size: 24; 
+  margin-top: 20;
+  margin-left: 15;
+  color: black;
+  font-weight: 700;
+}
+
+.input-rounded {
+  margin-top: 12;
+  border-width: 0;
+  background-color: #D9D9D9;
+  margin-bottom: 20;
+  border-radius: 25;
+  height: 36;
+}
+
+.register {
+  margin-left: 70;
+  margin-top: 0;
+  margin-bottom: 0;
+  color: rgb(0, 123, 0);
+  justify-content: right;
+}
+
+.btn-register {
+  height: 50;  
+  background-color: #007B00;
+  font-size: 24;
+  font-weight: 700;
+  margin-top: 30;
+  border-width: 0;
+  border-radius: 25;
+  color: white;
+}
+
+.btn-login {
+    color:#007B00;
+    font-size: 16;
+    font-weight: 700;
+    margin-top: 20;
+    margin-bottom: 20;
+}
