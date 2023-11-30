@@ -1,8 +1,0 @@
-use_frameworks!
-
-target "egogreen" do
-# Begin Podfile - /Users/lasyakambhampati/code/egogreen/node_modules/nativescript-image/platforms/ios/Podfile
-pod 'SDWebImage', '>= 5.7.1'
-
-# End Podfile
-end
