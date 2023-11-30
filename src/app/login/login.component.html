@@ -1,18 +1,23 @@
-<ActionBar title="Login" class="action-bar"></ActionBar>
+<ActionBar class="action-bar" title="Login"></ActionBar>
 
-<FlexboxLayout class ="page"> 
-    <StackLayout class="form" id="form">
-        <Label class="header" text="Login"> </Label> 
-        <StackLayout> 
-            <Label class = "input" text = "Username"> </Label> 
-            <TextField class="input-rounded" keyboardType="email" returnKeyType="next" autocorrect="false" autocapitalizationType="none"></TextField>
-            <StackLayout class = "hr-light"> </StackLayout>
-            <Label class = "input" text = "Password"> </Label> 
-            <TextField class="input-rounded" secure = "true" returnKeyType="next" autocorrect="false" autocapitalizationType="none"></TextField>
-            <StackLayout class = "hr-light"> </StackLayout>
+<ScrollView height="100%">
+    <FlexboxLayout class ="page"> 
+        <StackLayout class="image-container">
+            <Image class="image" src="~/assets/Logo.png" /> 
         </StackLayout>
-        <Button text="Register" class="btn"></Button>
-        <Button text="Forgot Password"></Button>
-        <Button text="Login" class = "btn btn-primary"> </Button>
-    </StackLayout>
-</FlexboxLayout>
+        <StackLayout class="form" id="form">
+            <Label class="header" text="Login"> </Label> 
+            <StackLayout> 
+                <Label class = "input" text = "Email"> </Label> 
+                <TextField class="input-rounded" keyboardType="email" returnKeyType="next" autocorrect="false" autocapitalizationType="none"></TextField>
+                <StackLayout class = "hr-light"> </StackLayout>
+                <Label class = "input" text = "Password"> </Label> 
+                <TextField class="input-rounded" secure = "true" returnKeyType="next" autocorrect="false" autocapitalizationType="none"></TextField>
+                <StackLayout class = "hr-light"> </StackLayout>
+            </StackLayout>
+            <Button text="Forgot Password?" class="btn btn-forgot"></Button> 
+            <Button text="Register" class="btn btn-register"></Button> 
+            <Button text="Login" class = "btn btn-login"> </Button>
+        </StackLayout>
+    </FlexboxLayout>
+</ScrollView>

@@ -1,6 +1,10 @@
 @import '@nativescript/theme/css/core.css';
 @import '@nativescript/theme/css/default.css';
 
+.action-bar{
+  background-color: #063f06;
+}
+
 .page{
   display: flex;
   flex-direction: column;
@@ -16,6 +20,7 @@
 .image-container {
     background-color: #063F06;
 }
+
 .image {
     background-color: #063F06;
     width: 50%;

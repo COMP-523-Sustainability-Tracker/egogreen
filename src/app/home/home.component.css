@@ -1,10 +1,6 @@
 @import '@nativescript/theme/css/core.css';
 @import '@nativescript/theme/css/default.css';
 
-Button.-primary {
-  font-size: 18;
-}
-
 .action-bar{
     background-color: #063f06;
 }
@@ -21,62 +17,14 @@ Button.-primary {
   margin-right: 30;
 }
 
-.header {
-  font-size: 25;
-  text-align: center;
-  color: green;
-  font-weight: 600;
-  margin-top: 20;
-  margin-bottom: 70;
-}
-
-.input-field {
-  margin-bottom: 5;
-}
-
-.input{
-  font-size: 20; 
-  margin-top: 20;
-  margin-bottom: 0;
-  margin-left: 15;
-  color: black;
-  font-weight: 400;
-}
-
-.input-rounded {
-  margin-top: 20;
-  border-width: 1;
-  border-color: rgb(217,217,217);
-  background-color: rgb(217,217,217);
-  margin-bottom: 20px;
-  border-radius:10;
-  padding-left: 1;
-}
-
-.register {
-  margin-left: 70;
-  margin-top: 0;
-  margin-bottom: 0;
-  color: rgb(0, 123, 0);
-  justify-content: right;
-}
-
 .btn-primary {
   height: 50;  
   background-color: rgb(0, 123, 0);
-  font-size: 20;
+  font-size: 24;
   font-weight: 600;
   margin-top: 20;
-  border-width: 1;
-  border-color: rgb(0,213,0);
+  border-width: 0;
   margin-bottom: 20px;
-  border-radius:10;
+  border-radius: 25;
   color: rgb(255, 255, 255);
-}
-
-.gold {
-  background-color: #FACC45;
-  border-width: 1;
-  border-radius: 5;
-  border-color: #FACC45;
 }

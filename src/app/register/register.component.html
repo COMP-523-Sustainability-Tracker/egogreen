@@ -1,3 +1,5 @@
+<ActionBar class="action-bar" title="Register"></ActionBar>
+
 <ScrollView height="100%">
     <FlexboxLayout class ="page">
         <StackLayout class="image-container">
@@ -6,21 +8,21 @@
         <StackLayout class="form" id="form">
             <Label class="header" text="Register"> </Label> 
             <StackLayout> 
-                <Label class = "input" text = "First Name"> </Label> 
+                <Label class="input" text ="First Name"> </Label> 
                 <TextField class="input-rounded" returnKeyType="next" autocorrect="false" autocapitalizationType="none"></TextField>
                 <StackLayout class = "hr-light"> </StackLayout>
-                <Label class = "input" text = "Last Name"> </Label> 
+                <Label class="input" text="Last Name"> </Label> 
                 <TextField class="input-rounded" returnKeyType="next" autocorrect="false" autocapitalizationType="none"></TextField>
-                <StackLayout class = "hr-light"> </StackLayout>
-                <Label class = "input" text = "Email"> </Label> 
+                <StackLayout class="hr-light"> </StackLayout>
+                <Label class="input" text="Email"> </Label> 
                 <TextField class="input-rounded" keyboardType="email" returnKeyType="next" autocorrect="false" autocapitalizationType="none"></TextField>
                 <StackLayout class = "hr-light"> </StackLayout>
-                <Label class = "input" text = "Password"> </Label> 
+                <Label class="input" text="Password"> </Label> 
                 <TextField class="input-rounded" secure = "true" returnKeyType="next" autocorrect="false" autocapitalizationType="none"></TextField>
-                <StackLayout class = "hr-light"> </StackLayout>
-                <Label class = "input" text = "Confirm Password"> </Label> 
+                <StackLayout class="hr-light"> </StackLayout>
+                <Label class="input" text="Confirm Password"> </Label> 
                 <TextField class="input-rounded" secure = "true" returnKeyType="next" autocorrect="false" autocapitalizationType="none"></TextField>
-                <StackLayout class = "hr-light"> </StackLayout>
+                <StackLayout class="hr-light"> </StackLayout>
             </StackLayout>
             <Button text="Register" class="btn btn-register"></Button>
             <Button text="Login" class="btn btn-login" (tap)="loadLogin()"> </Button>
