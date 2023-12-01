@@ -9,15 +9,15 @@
             <Label class="header" text="Login"> </Label> 
             <StackLayout> 
                 <Label class = "input" text = "Email"> </Label> 
-                <TextField class="input-rounded" keyboardType="email" returnKeyType="next" autocorrect="false" autocapitalizationType="none"></TextField>
+                <TextField class="input-rounded" text="{{user.email}}" keyboardType="email" returnKeyType="next" autocorrect="false" autocapitalizationType="none" [(ngModel)]="user.email"></TextField>
                 <StackLayout class = "hr-light"> </StackLayout>
                 <Label class = "input" text = "Password"> </Label> 
-                <TextField class="input-rounded" secure = "true" returnKeyType="next" autocorrect="false" autocapitalizationType="none"></TextField>
+                <TextField class="input-rounded" secure = "true" returnKeyType="next" autocorrect="false" autocapitalizationType="none" text="{{user.password}}" [(ngModel)]="user.password"></TextField>
                 <StackLayout class = "hr-light"> </StackLayout>
             </StackLayout>
-            <Button text="Forgot Password?" class="btn btn-forgot"></Button> 
-            <Button text="Register" class="btn btn-register"></Button> 
-            <Button text="Login" class = "btn btn-login"> </Button>
+            <Button class="btn btn-forgot" text="Forgot Password?" (tap)="forgotPassword()"></Button> 
+            <Button class="btn btn-register" text="Register" (tap)="toggleDisplay()"></Button> 
+            <Button class="btn btn-login" text="Login" (tap)="submit()"> </Button>
         </StackLayout>
     </FlexboxLayout>
 </ScrollView>

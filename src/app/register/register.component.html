@@ -24,7 +24,7 @@
                 <TextField class="input-rounded" secure = "true" returnKeyType="next" autocorrect="false" autocapitalizationType="none"></TextField>
                 <StackLayout class="hr-light"> </StackLayout>
             </StackLayout>
-            <Button text="Register" class="btn btn-register"></Button>
+            <Button text="Register" class="btn btn-register" (tap)="submit()"></Button>
             <Button text="Login" class="btn btn-login" (tap)="loadLogin()"> </Button>
         </StackLayout>
     </FlexboxLayout>
