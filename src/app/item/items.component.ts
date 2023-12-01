@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core'
 import {Observable} from 'rxjs'
 import {FirebaseService} from "../services"
-import { Item } from './item'
 import { ReceiptService } from './item.service'
 import {RouterExtensions} from '@nativescript/angular';
 import { Receipt } from '../models'

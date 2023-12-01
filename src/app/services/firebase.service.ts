@@ -13,9 +13,6 @@ export class FirebaseService {
     private ngZone: NgZone,
     private utils: UtilsService
   ){} 
-
-  private _allItems: Array<Receipt> = [];
-  items: BehaviorSubject<Array<Receipt>> = new BehaviorSubject([]);
  
   register(user: User) {
     return firebase().auth().createUserWithEmailAndPassword(user.email, user.password)

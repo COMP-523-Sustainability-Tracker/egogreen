@@ -10,7 +10,8 @@ export class Receipt {
         public paymentType: string,
         public receiptTotal: number,
         public calculatedSubTotal: number,
-        public totalGCO2e: number
+        public totalGCO2e: number,
+        public taxAmount: number
       )
     {}   
 }

@@ -1,4 +1,4 @@
-export interface Receipt {
+export interface Receipts {
     id: string
     merchantName: string
     merchantAddress: string

@@ -59,6 +59,9 @@ export class LoginComponent {
       .then(() => {
         this.isAuthenticating = false;
         this.toggleDisplay();
+        if(BackendService.isLoggedIn()) {
+          this.routerExtensions.navigate(["/"], { clearHistory: true } )
+        } 
       })
       .catch((message:any) => {
         this.isAuthenticating = false;

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core'
 import { firebase } from '@nativescript/firebase-core'
 import '@nativescript/firebase-firestore'
-import { Receipt } from './receipt'
+import { Receipt } from '../models'
 import { BackendService } from "~/app/services/backend.service"
 
 @Injectable({
@@ -21,7 +21,6 @@ export class ReceiptService {
     new Promise((resolve, reject) => {
     this.receiptCollection.get()
       .then(querySnapshot => {
-        this.receipts = []
         querySnapshot.forEach(document => {
           this.receipts.push({
             "id": document.id,

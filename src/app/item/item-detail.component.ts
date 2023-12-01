@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core'
 import { ActivatedRoute } from '@angular/router'
 
 import { ReceiptService } from './item.service'
-import { Receipt } from './receipt'
+import { Receipt } from '../models'
 
 @Component({
   selector: 'ns-details',
