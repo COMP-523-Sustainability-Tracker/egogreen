@@ -14,6 +14,7 @@
     "@angular/router": "~16.2.0",
     "@nativescript-community/ui-image": "^4.3.27",
     "@nativescript/angular": "^16.0.0",
+    "@nativescript/background-http": "^6.0.0",
     "@nativescript/camera": "^5.0.15",
     "@nativescript/core": "~8.6.0",
     "@nativescript/firebase-auth": "^3.2.0",
@@ -22,6 +23,7 @@
     "@nativescript/firebase-remote-config": "^3.2.0",
     "@nativescript/firebase-storage": "^3.2.0",
     "@nativescript/theme": "~3.0.2",
+    "mime-types": "^2.1.35",
     "rxjs": "~7.8.0",
     "zone.js": "~0.13.0"
   },

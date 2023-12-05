@@ -16,6 +16,10 @@ Button.-primary {
   margin-right: 30;
 }
 
+.test {
+  margin-bottom: 10px;
+}
+
 .header {
   font-size: 25;
   text-align: center;

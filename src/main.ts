@@ -6,6 +6,7 @@ import { firebase } from '@nativescript/firebase-core'
 import '@nativescript/firebase-auth'
 import '@nativescript/firebase-firestore'
 import '@nativescript/firebase-remote-config'
+import '@nativescript/firebase-storage'
 
 runNativeScriptAngularApp({
   appModuleBootstrap: () => platformNativeScript().bootstrapModule(AppModule),

@@ -3,6 +3,7 @@ import { firebase } from '@nativescript/firebase-core'
 import '@nativescript/firebase-firestore'
 import { Receipt } from '../models'
 import { BackendService } from "~/app/services/backend.service"
+import { Observable } from 'rxjs'
 
 @Injectable({
   providedIn: 'root',
@@ -52,4 +53,6 @@ export class ReceiptService {
   getItem(id: string): Receipt {
     return this.receipts.filter((receipt) => receipt.id === id)[0]
   }
+
+  
 }

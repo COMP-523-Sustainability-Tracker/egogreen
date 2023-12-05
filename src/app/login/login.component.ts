@@ -24,8 +24,8 @@ export class LoginComponent {
             ) 
   {
     this.user = new User();
-    this.user.email = "dude@aol.com";
-    this.user.password = "testing";
+    this.user.email = "steven.andrew.martin@gmail.com";
+    this.user.password = "testing321";
 
 
   }

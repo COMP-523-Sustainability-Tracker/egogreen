@@ -60,7 +60,8 @@ export class FirebaseService {
 /*
   getMyReceipts(): Observable<any> {
     return new Observable((observer: any) => {
-      let path = 'Gifts';
+      let path = "userData/" + BackendService.token + "/receipts";
+      console.log(path);
       
         let onValueEvent = (snapshot: any) => {
           this.ngZone.run(() => {
@@ -69,7 +70,7 @@ export class FirebaseService {
              observer.next(results);
           });
         };
-        firebase().addValueEventListener(onValueEvent, `/${path}`);
+        firebase().firestore() addValueEventListener(onValueEvent, `/${path}`);
     }).pipe(share());              
   }
 
@@ -98,7 +99,7 @@ export class FirebaseService {
     })
     this.items.next([...this._allItems]);
   }
-*/
+
 /*
   getMyGift(id: string): Observable<any> {
     return new Observable((observer: any) => {
