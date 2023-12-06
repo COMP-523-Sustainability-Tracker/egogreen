@@ -1,17 +1,13 @@
 import {Injectable, NgZone} from "@angular/core"
 import {User, Receipt } from "../models";
 import { BackendService } from "./backend.service"
-import {UtilsService} from './utils.service'
 import { firebase } from '@nativescript/firebase-core'
 import { Dialogs } from '@nativescript/core'
-import {Observable, BehaviorSubject} from 'rxjs'
-import { share } from 'rxjs/operators'
 
 @Injectable()
 export class FirebaseService {
   constructor(
     private ngZone: NgZone,
-    private utils: UtilsService
   ){} 
  
   register(user: User) {

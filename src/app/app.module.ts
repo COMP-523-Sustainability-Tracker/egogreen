@@ -6,7 +6,7 @@ import { AppComponent } from './app.component'
 import { ItemsComponent } from './item/items.component'
 import { ItemDetailComponent } from './item/item-detail.component'
 
-import { BackendService, FirebaseService, UtilsService } from "./services"
+import { BackendService, FirebaseService } from "./services"
 
 @NgModule({
   bootstrap: [AppComponent],
@@ -15,7 +15,6 @@ import { BackendService, FirebaseService, UtilsService } from "./services"
   providers: [
     BackendService,
     FirebaseService,
-    UtilsService,
     authProviders],
   schemas: [NO_ERRORS_SCHEMA],
 })

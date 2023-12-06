@@ -1,16 +1,13 @@
 import { Component, OnInit } from '@angular/core'
-import {Observable} from 'rxjs'
 import {FirebaseService, BackendService} from "../services"
 import { ReceiptService } from './item.service'
-import {RouterExtensions} from '@nativescript/angular';
+import {RouterExtensions} from '@nativescript/angular'
 import { Receipt } from '../models'
-import { requestPermissions } from '@nativescript/camera';
-import * as camera from "@nativescript/camera";
-import { ImageSource, Image, ImageAsset } from "@nativescript/core";
-import { knownFolders, path } from '@nativescript/core'
-const enums = require("@nativescript/core/core-types").Enums;
-import { init } from '@nativescript/background-http';
-//import * as mime from 'mime-types'
+import { requestPermissions, takePicture } from '@nativescript/camera'
+import { ImageSource } from "@nativescript/core"
+import { knownFolders } from '@nativescript/core'
+const enums = require("@nativescript/core/core-types").Enums
+import { init } from '@nativescript/background-http'
 init();
 
 @Component({
@@ -47,14 +44,11 @@ export class ItemsComponent implements OnInit {
             keepAspectRatio: true,
             saveToGallery: false
         };
-          camera.takePicture(options)
+          takePicture(options)
           .then((imageAsset) => {
             //console.log("Result is an image asset instance");
             ImageSource.fromAsset(imageAsset).then(res => {
-              myImageSource = res
-              //console.log(myImageSource)
-
-              
+              myImageSource = res           
               const imagePath = knownFolders.documents().path + `/photo-${Date.now()}.jpg`;
               console.log(imagePath)
               myImageSource.saveToFile(imagePath, enums.ImageFormat.jpg);
@@ -72,17 +66,18 @@ export class ItemsComponent implements OnInit {
               }
 
               var params = [{name:"image", filename: imagePath, mimeType: 'image/jpeg'}];
-
-              //console.log(request)
-              //console.log(BackendService.token)
-
               return new Promise((resolve, reject) => {
               let task = session.multipartUpload(params, request)
               task.on('error', (e) => {
               reject(e)
               })
               task.on('complete', res => {
-                alert("Upload Complete")
+                alert({
+                  title: 'Receipt Upload Complete!',
+                  message: 'Please allow a few moments for receipt image processing and CO2 assessment.',
+                  okButtonText: 'OK',
+                  cancelable: true,
+                })
                 resolve(res)
               })
               })
