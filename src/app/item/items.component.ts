@@ -16,8 +16,9 @@ init();
 
 export class ItemsComponent extends Observable implements OnInit {
   items = new ObservableArray<Receipt>()
-  totals = new ObservableArray()
-  
+  totalSpend =  0.00
+  totalCO2 =  0.00
+
   constructor(private receiptService: ReceiptService, private routerExtensions: RouterExtensions, private firebaseService: FirebaseService) {
     super()
   }
@@ -38,10 +39,17 @@ export class ItemsComponent extends Observable implements OnInit {
 
   private processReceipts(receipts) {
     this.items.length = 0
+    var totalSpend = 0.00
+    var totalCO2 = 0.00
     const receiptsTmp = <any>receipts;
     receiptsTmp.forEach((item) => {
       this.items.push(item)
+      totalSpend += parseFloat(item.receiptTotal)
+      totalCO2 += parseFloat(item.totalGCO2e)
     })
+
+    this.totalSpend = parseFloat(totalSpend).toFixed(2)
+    this.totalCO2 = parseFloat(totalCO2/1000).toFixed(2)
   }
 
   getItem(id: string): Receipt {

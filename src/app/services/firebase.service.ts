@@ -1,15 +1,16 @@
 import {Injectable, NgZone} from "@angular/core"
-import {User, Receipt } from "../models";
+import { User } from "../models";
 import { BackendService } from "./backend.service"
 import { firebase } from '@nativescript/firebase-core'
 import { Dialogs } from '@nativescript/core'
 
 @Injectable()
 export class FirebaseService {
+
   constructor(
     private ngZone: NgZone,
   ){} 
- 
+
   register(user: User) {
     return firebase().auth().createUserWithEmailAndPassword(user.email, user.password)
     .then(
@@ -35,8 +36,8 @@ export class FirebaseService {
 
 
   logout(){
-    BackendService.token = "";
-    firebase().auth().signOut();    
+    BackendService.token = ""
+    firebase().auth().signOut()   
   }
   
   resetPassword(email) {

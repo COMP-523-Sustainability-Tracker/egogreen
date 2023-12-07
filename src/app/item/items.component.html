@@ -6,11 +6,24 @@
 
 
 <StackLayout>
+  <FlexboxLayout class ="page"> 
+    <StackLayout class="form">
+      <FlexboxLayout flexDirection = "row">
+        <StackLayout class = "buttonbox">
+            <Button class = "box-button1" [text]= "'Total Spend: $' + totalSpend" tap = "progressBar" textWrap = "true"> </Button>
+        </StackLayout>
 
-  <StackLayout class="test">
-    <Button text="Snap a receipt to assess CO2 use" class = "btn btn-primary" (tap)="addReceipt()"></Button>
-  </StackLayout> 
-  
+        <StackLayout class = "buttonbox2">
+            <Button class = "box-button2" [text]= "'CO2 Used: ' + totalCO2 + 'kg'" tap = "register" textWrap = "true"> </Button>
+        </StackLayout>
+
+        <StackLayout class = "buttonbox">
+          <Button text="Add receipt" class = "box-button1" (tap)="addReceipt()"></Button>
+        </StackLayout>
+    </FlexboxLayout>
+    </StackLayout>
+  </FlexboxLayout>
+
   <GridLayout>
     <ListView [items]="items">
       <ng-template let-item="item">

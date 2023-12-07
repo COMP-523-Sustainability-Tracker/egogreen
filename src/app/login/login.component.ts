@@ -35,8 +35,7 @@ export class LoginComponent {
     if (this.isLoggingIn) {
       await this.login();
       if(BackendService.isLoggedIn()) {
-        this.receiptService = new ReceiptService();
-        this.routerExtensions.navigate(["/"], { clearHistory: true } )
+        this.authenticatedSetup()
       } 
     } else {
       await this.signUp();
@@ -59,13 +58,19 @@ export class LoginComponent {
         this.isAuthenticating = false;
         this.toggleDisplay();
         if(BackendService.isLoggedIn()) {
-          this.receiptService = new ReceiptService();
-          this.routerExtensions.navigate(["/"], { clearHistory: true } )
+          this.authenticatedSetup()
         } 
       })
       .catch((message:any) => {
         this.isAuthenticating = false;
       });
+  }
+
+  async authenticatedSetup(){
+    if(BackendService.isLoggedIn()) {
+      this.receiptService.setCollection()
+      this.routerExtensions.navigate(["/"], { clearHistory: true } )
+    } 
   }
 
   forgotPassword() {

@@ -11,7 +11,12 @@ export class ReceiptService {
   private receiptCollection;
 
   constructor () {
+    this.setCollection()
+  }
+  public setCollection() {
+   if(BackendService.isLoggedIn()) {
     this.receiptCollection = firebase().firestore().collection("userData/" + BackendService.token + "/receipts").orderBy('date', "desc")
+   }
   }
 
   loadItems (){

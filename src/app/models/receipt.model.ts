@@ -1,4 +1,4 @@
-import { LineItem } from "./line-item.model"
+import { LineItem } from "./line.item.model"
 
 export class Receipt {
   public id: string

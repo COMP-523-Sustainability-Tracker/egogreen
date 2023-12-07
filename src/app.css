@@ -14,6 +14,7 @@ Button.-primary {
   width: 100%;
   margin-left: 30;
   margin-right: 30;
+  
 }
 
 .test {
@@ -78,4 +79,56 @@ Button.-primary {
   border-width: 1;
   border-radius: 5;
   border-color: #FACC45;
+}
+
+
+.box-button1{
+  font-size: 12;
+  padding: 0 !important;
+  margin: 0 !important;
+  vertical-align: bottom;
+  font-weight: 800;
+  font-family: "Open Sans";
+  background-color: rgb(0, 123, 0);
+  border-width: 0;
+  border-radius:10;
+  color: rgb(255, 255, 255);
+}
+
+.box-button2{
+  font-size: 12;
+  padding: 0 !important;
+  margin: 0 !important;
+  vertical-align: bottom;
+  font-weight: 800;
+  font-family: "Open Sans";
+  background-color: rgb(6, 63, 6);
+  border-width: 0;
+  border-color: rgb(6, 63, 6);
+  border-radius:10;
+  color: rgb(255, 255, 255);
+}
+
+.buttonbox{
+  height: 100;
+  width: 100;        
+  color: white;
+  background-color: rgb(0, 123, 0);
+  border-radius: 10;
+  justify-items: center;
+  align-items: center;
+  vertical-align: middle;
+  margin: 5;
+}
+
+.buttonbox2{
+  height: 100;
+  width: 100;        
+  color: white;
+  background-color: rgb(6, 63, 6);
+  border-radius: 10;
+  justify-items: center;
+  align-items: center;
+  vertical-align: middle;
+  margin: 5;
 }
