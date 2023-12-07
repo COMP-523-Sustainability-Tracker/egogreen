@@ -2,9 +2,8 @@ import { Component } from '@angular/core'
 import { prompt } from '@nativescript/core'
 import {User} from '../models/user.model'
 import {FirebaseService, BackendService} from '../services'
-import { RouterExtensions } from '@nativescript/angular';
-import { NativeScriptFormsModule } from '@nativescript/angular'
-
+import { RouterExtensions } from '@nativescript/angular'
+import { ReceiptService } from '../item/item.service'
 
 @Component({
   moduleId: module.id,
@@ -20,12 +19,13 @@ export class LoginComponent {
 
   
   constructor(private routerExtensions: RouterExtensions, 
-              private firebaseService: FirebaseService
+              private firebaseService: FirebaseService,
+              private receiptService: ReceiptService
             ) 
   {
     this.user = new User();
-    this.user.email = "steven.andrew.martin@gmail.com";
-    this.user.password = "testing321";
+    this.user.email = "";
+    this.user.password = "";
 
 
   }
@@ -33,10 +33,9 @@ export class LoginComponent {
  async submit() {
     this.isAuthenticating = true;
     if (this.isLoggingIn) {
-      //console.log("logging in: " + this.user.email + " " + this.user.password)
       await this.login();
-      //console.log("Submit After login: " + BackendService.token + this.isAuthenticating)
       if(BackendService.isLoggedIn()) {
+        this.receiptService = new ReceiptService();
         this.routerExtensions.navigate(["/"], { clearHistory: true } )
       } 
     } else {
@@ -60,6 +59,7 @@ export class LoginComponent {
         this.isAuthenticating = false;
         this.toggleDisplay();
         if(BackendService.isLoggedIn()) {
+          this.receiptService = new ReceiptService();
           this.routerExtensions.navigate(["/"], { clearHistory: true } )
         } 
       })

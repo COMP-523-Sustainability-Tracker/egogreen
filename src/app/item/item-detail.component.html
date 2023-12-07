@@ -23,4 +23,15 @@
   <FlexboxLayout class="m-15">
     <Label class="p" [text]="'totalGCO2e: ' + receipt.totalGCO2e"></Label>
   </FlexboxLayout>
+  <GridLayout
+  height="400"
+  rows="*, auto, auto"
+  columns="*"
+  class="bg-secondary"
+  borderRadius="10"
+  margin="5 10"
+  padding="0"
+>
+    <Image row="0" margin="0" stretch="aspectFill" [src]="'https://firebasestorage.googleapis.com/v0/b/egogreen-e5ca9.appspot.com/o/' + receipt.imageURL + '?alt=media'"></Image>
+  </GridLayout>
 </FlexboxLayout>

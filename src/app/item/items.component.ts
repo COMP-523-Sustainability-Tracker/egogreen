@@ -4,8 +4,7 @@ import { ReceiptService } from './item.service'
 import {RouterExtensions} from '@nativescript/angular'
 import { Receipt } from '../models'
 import { requestPermissions, takePicture } from '@nativescript/camera'
-import { ImageSource } from "@nativescript/core"
-import { knownFolders } from '@nativescript/core'
+import { knownFolders, ImageSource, ObservableArray, Observable } from '@nativescript/core'
 const enums = require("@nativescript/core/core-types").Enums
 import { init } from '@nativescript/background-http'
 init();
@@ -15,17 +14,41 @@ init();
   templateUrl: './items.component.html',
 })
 
-export class ItemsComponent implements OnInit {
-  items: Array<Receipt>
-
-  constructor(private receiptService: ReceiptService, 
-              private routerExtensions: RouterExtensions, 
-              private firebaseService: FirebaseService
-              ) {}
+export class ItemsComponent extends Observable implements OnInit {
+  items = new ObservableArray<Receipt>()
+  totals = new ObservableArray()
+  
+  constructor(private receiptService: ReceiptService, private routerExtensions: RouterExtensions, private firebaseService: FirebaseService) {
+    super()
+  }
 
   ngOnInit(): void {
-    this.items = this.receiptService.getItems()
-    //this.receipts$ = this.firebaseService.getMyReceipts();
+    this.loadReceipts()   
+  }
+
+  getReceipts() {
+    return this.items
+  }
+
+  loadReceipts() {
+    this.receiptService.watchReceipts((receipts) => {
+      this.processReceipts(receipts)
+    })
+  }
+
+  private processReceipts(receipts) {
+    this.items.length = 0
+    const receiptsTmp = <any>receipts;
+    receiptsTmp.forEach((item) => {
+      this.items.push(item)
+    })
+  }
+
+  getItem(id: string): Receipt {
+    console.log(id)
+    console.log(this.items.length)
+    console.log("filter: " + this.items.filter((receipt) => receipt.id === id)[0])
+    return this.items.filter((receipt) => receipt.id === id)[0]
   }
 
   logout() {
@@ -39,9 +62,8 @@ export class ItemsComponent implements OnInit {
           // ... call camera.takePicture here ...
           var myImageSource: ImageSource
           const options = {
-            width: 2048,
-            height: 1536,
-            keepAspectRatio: true,
+            width: 600,
+            height: 600,
             saveToGallery: false
         };
           takePicture(options)
@@ -49,23 +71,24 @@ export class ItemsComponent implements OnInit {
             //console.log("Result is an image asset instance");
             ImageSource.fromAsset(imageAsset).then(res => {
               myImageSource = res           
-              const imagePath = knownFolders.documents().path + `/photo-${Date.now()}.jpg`;
-              console.log(imagePath)
-              myImageSource.saveToFile(imagePath, enums.ImageFormat.jpg);
+              const imagePath = knownFolders.documents().path + `/photo-${Date.now()}.jpg`
+              myImageSource.saveToFile(imagePath, enums.ImageFormat.jpg)
 
-              var url = 'https://egogreen-node-b713a1c6fb69.herokuapp.com/app/upload';
-              var bghttp = require('@nativescript/background-http');
-              var session = bghttp.session('image-upload');
+              //var url = 'https://egogreen-node-b713a1c6fb69.herokuapp.com/app/upload'
+              var url = 'http://10.15.20.64:8090/app/upload'
+              var bghttp = require('@nativescript/background-http')
+              var session = bghttp.session('image-upload')
               var request = {
                 url: url,
                 method: 'POST',
                 headers: {
                   'Content-Type': 'application/octet-stream',
                   'authorization': BackendService.token
+
                 }
               }
 
-              var params = [{name:"image", filename: imagePath, mimeType: 'image/jpeg'}];
+              var params = [{name:"image", filename: imagePath, mimeType: 'image/jpeg'}]
               return new Promise((resolve, reject) => {
               let task = session.multipartUpload(params, request)
               task.on('error', (e) => {

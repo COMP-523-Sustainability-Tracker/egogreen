@@ -25,8 +25,8 @@ Button.-primary {
   text-align: center;
   color: green;
   font-weight: 600;
-  margin-top: 20;
-  margin-bottom: 70;
+  margin-top: 10;
+  margin-bottom: 30;
 }
 
 .input-field {
@@ -35,7 +35,7 @@ Button.-primary {
 
 .input{
   font-size: 20; 
-  margin-top: 20;
+  margin-top: 15;
   margin-bottom: 0;
   margin-left: 15;
   color: black;

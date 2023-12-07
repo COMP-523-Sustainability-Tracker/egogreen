@@ -6,9 +6,11 @@
 
 
 <StackLayout>
+
   <StackLayout class="test">
-    <Button text="Snap receipt to assess CO2 footprint" class = "btn btn-primary" (tap)="addReceipt()"></Button>
+    <Button text="Snap a receipt to assess CO2 use" class = "btn btn-primary" (tap)="addReceipt()"></Button>
   </StackLayout> 
+  
   <GridLayout>
     <ListView [items]="items">
       <ng-template let-item="item">
