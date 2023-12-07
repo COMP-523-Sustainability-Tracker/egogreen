@@ -82,8 +82,8 @@ export class ItemsComponent extends Observable implements OnInit {
               const imagePath = knownFolders.documents().path + `/photo-${Date.now()}.jpg`
               myImageSource.saveToFile(imagePath, enums.ImageFormat.jpg)
 
-              //var url = 'https://egogreen-node-b713a1c6fb69.herokuapp.com/app/upload'
-              var url = 'http://10.15.20.64:8090/app/upload'
+              var url = 'https://egogreen-node-b713a1c6fb69.herokuapp.com/app/upload'
+              //var url = 'http://10.15.20.64:8090/app/upload'
               var bghttp = require('@nativescript/background-http')
               var session = bghttp.session('image-upload')
               var request = {
